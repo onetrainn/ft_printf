@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_printf.c                                 :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgrossi <lgrossi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 18:17:01 by lgrossi           #+#    #+#             */
-/*   Updated: 2023/05/22 18:44:50 by lgrossi          ###   ########.fr       */
+/*   Created: 2023/05/19 15:28:23 by lorenzogros       #+#    #+#             */
+/*   Updated: 2023/05/29 19:14:58 by lgrossi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_putstr_printf(char *s)
-{
-	int	i;
+# include <unistd.h>
+# include <stdarg.h>
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-	{
-		write (1, &s[i], 1);
-		i++;
-	}
-	return (i);
-}
+int	ft_printf(const char *format, ...);
+int	ft_hexa(unsigned int n, char *str);
+int	ft_write_format(char c, va_list list);
+int	ft_unsigned(unsigned int c);
+int	ft_char(char c);
+int	ft_number(int n);
+int	ft_string(char *s);
+int	hex(unsigned long n, char *str);
+int	ft_voidhex(unsigned long n, char *str);
+#endif

@@ -1,19 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_printf.c                                :+:      :+:    :+:   */
+/*   ft_number.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgrossi <lgrossi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 18:16:19 by lgrossi           #+#    #+#             */
-/*   Updated: 2023/05/22 18:24:46 by lgrossi          ###   ########.fr       */
+/*   Created: 2023/05/29 17:50:12 by lgrossi           #+#    #+#             */
+/*   Updated: 2023/05/29 19:11:15 by lgrossi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_printf(char c)
+int	ft_number(int n)
 {
-	write (1, &c, 1);
-	return (1);
+	char	s;
+	int		i;
+
+	i = 0;
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return (11);
+	}
+	if (n < 0)
+	{
+		write (1, "-", 1);
+		n = -n;
+		i += 1;
+	}
+	if (n >= 10)
+	{
+		i += ft_number(n / 10);
+		n = n % 10;
+	}
+	if (n < 10)
+		s = n + 48;
+	i += 1;
+	write (1, &s, 1);
+	return (i);
 }

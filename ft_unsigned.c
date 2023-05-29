@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_printf.c                                 :+:      :+:    :+:   */
+/*   ft_unsigned.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgrossi <lgrossi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 18:19:07 by lgrossi           #+#    #+#             */
-/*   Updated: 2023/05/22 18:46:42 by lgrossi          ###   ########.fr       */
+/*   Created: 2023/05/22 18:22:35 by lgrossi           #+#    #+#             */
+/*   Updated: 2023/05/29 19:09:03 by lgrossi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_printf(int n)
+int	ft_unsigned(unsigned int c)
 {
-	char	s;
-	int	i;
+	int	x;
 
-	i = 0;
-	if (n == -2147483648)
+	x = 0;
+	if (c > 9)
 	{
-		write(1, "-2147483648", 11);
-		return (11);
+		x += ft_unsigned(c / 10);
+		c = c % 10;
 	}
-	if (n < 0)
-	{
-		write (1, "-", 1);
-		n = -n;
-		i += 1;
-	}
-	if (n >= 10)
-	{
-		i += ft_putnbr_printf(n / 10);
-		n = n % 10;
-	}
-	if (n < 10)
-		s = n + 48;
-	i += 1;
-	write (1, &s, 1);
-	return (i);
+	x += ft_char(c + 48);
+	return (x);
 }
-
-

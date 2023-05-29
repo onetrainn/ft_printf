@@ -6,13 +6,13 @@
 #    By: lgrossi <lgrossi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/20 18:54:46 by lgrossi           #+#    #+#              #
-#    Updated: 2023/05/22 18:51:14 by lgrossi          ###   ########.fr        #
+#    Updated: 2023/05/29 19:12:35 by lgrossi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libftprintf.a
 
-OBJS := ft_hexadecimal.o ft_printf.o ft_putunsigned.o ft_putchar_printf.o ft_putnbr_printf.o ft_voidhex.o ft_putstr_printf.o
+OBJS := ft_hexa.o ft_printf.o ft_unsigned.o ft_char.o ft_number.o ft_voidhex.o ft_string.o
 FLAGS := -Wall -Werror -Wextra
 
 all: $(NAME)

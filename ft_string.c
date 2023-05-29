@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_voidhex.c                                       :+:      :+:    :+:   */
+/*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgrossi <lgrossi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 18:22:10 by lgrossi           #+#    #+#             */
-/*   Updated: 2023/05/22 18:47:45 by lgrossi          ###   ########.fr       */
+/*   Created: 2023/05/22 18:17:01 by lgrossi           #+#    #+#             */
+/*   Updated: 2023/05/29 19:13:39 by lgrossi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	hex(unsigned long n, char *str)
+int	ft_string(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (n >= 16)
-		i += hex(n / 16, str);
-	i += ft_putchar_printf(str[n % 16]);
+	if (!str)
+		return (write(1, "(null)", 6));
+	while (str[i] != '\0')
+	{
+		ft_char(str[i]);
+		i++;
+	}
 	return (i);
-}
-
-int	ft_voidhex(unsigned long n, char *str)
-{
-	int	x;
-
-	x = 2;
-	ft_putchar_printf('0');
-	ft_putchar_printf('x');
-	x += hex(n, str);
-	return (x);
 }
